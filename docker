@@ -86,3 +86,277 @@ How to get outside of container shell without shutting/terminating container?
 
 to get ip detail of host
 - netstat -ntlp (will give all info about networking like port forwarding,open ports)
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Containers Advantage
+- light weight
+- portal
+- flexible
+- scalable
+- stackable
+
+It works on
+- Namespace technology
+
+IPS
+MOUNT 
+Format- LIB
+
+
+Client Server Architecture
+   
+	docker client (CLI) 
+	     ^ 
+	     |
+	 REST API
+	     ^ 
+	     |
+	Docker Daemon
+
+
+
+
+
+
+> docker ps
+> docker images
+> docker 
+
+
+Lits of parent Modules
+Management Commands:
+  builder     Manage builds
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  engine      Manage the docker engine
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+EX: docker parent_module sub_module
+> docker image ls
+> docker container ls (old version docker ps)
+> docker container ls -a
+> docker container rm <container_id>
+> docker container rm <container_id> <container_id> <container_id> (delete multiple container at a time)
+> docker container run ubuntu cat /etc/os-release
+> docker container start <container_id> (we can use to restart container)
+> docker container stop <container_id>
+> docker container run -d <image_name> command (run container in background. d- deattach)
+> docker container attach <container_id>
+>docker container run -it ubuntu /bin/bash (specially for ubuntu. to get inside container)
+>
+
+How to get outside of container shell without shutting/terminating container?
+> press ctrl+pq (you will be out of container and container will still running in background)
+> docker container ls -aq (return id's of containers)
+> docker conatiner rm $(docker container ls -aq) (it will delete all container)
+> docker container inpsect <container_id> (give all info of container)
+> docker container logs <container_id>
+> docker container top <container_id> (gives the list of processes running inside container)
+> docker container stats (gives statistic of all running container)
+> docker container run -p 3600:80 nginx (p- port mappig, 3600(host) and 80(container)	
+> docker container run <image_name> --name testing_web(Ex.)   (--name : attach name to container. so we can easily remember and manage)
+> docker container exec -it <container_id> command (it iw used to execute command inside running container. command is specified at the end)
+> docker container rename <container_id> new_name
+> docker container kill <container_id>
+> docker container wait <container_id> (waiting for container to shutdown and it will return its exit status code)
+> docker container pause <container_id> ( it will pause all processes running inside container)
+> docker container unpause <container_id> ( it will unpause all pause processes running inside container)
+> docker container prune (it will remove all stop container)
+> docker container port <container_id>/<container_name> (it will show info regarding port mapping)
+> docker container create <image_name> startup-command ( it only create container but does not start it. we need to explicitly start that container)
+> docker container start <container_id> (it start the container which is created and not yet started. or start stop container)
+> docker container diff <container_id> (return changes made in container file system)
+> docker container cp localhost_path <container_id>:path (it will copy data from localhost to container Ex. docker container cp /tmp 12bhb:/tmp/)
+> docker container export <container_id> > my_container.tar (it will export container(image) as tar file )
+> docker image import my-container.tar give_some_name_for_image (it will import container from tar and put as image file)
+> docker container commit --author "mukesh bhati" -m "this is test commit" <running_container_id> new_name_for image  (it will create image from running container)
+> docker pull image_name:tag  (it will pull image from dockerHub)
+> docker image tag <image_name> hub_account_id/image_name  (it will create a tag with given image)
+> docker login
+> docker image push hub_account_id/image_name[i.e tag image] 
+> docker image ls --format '{{.ID}} , {{.Repository}}' (formated output)
+> docker image history <image_id/image_name> (get history of image> 
+> docker image rm <image_name> (remove image)
+> docker rmi <image_name> (old version of image rm)
+> docker image inspect <image_name>
+> docker image prune (it will remove all unused images) 
+> docker image save <image_name> new_name.tar (it will save image in tar)
+> docker image load < new_name.tar (it will load image which is save by save command)
+> docker container run -P -it <image-name> command (it will map with any random port of host if some port are expose in dockerfile/image)
+
+
+to get ip detail of host
+- netstat -ntlp (will give all info about networking like port forwarding,open ports)
+
+
+
+For data persistent
+2 Methods
+
+i) Volume
+ii) Bind mount
+iii) tmpfs
+
+docker container run command for mysql( docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql)
+
+Commands for Volume
+> docker volume ls
+> docker volume create <volume_name>
+> docker volume rm <volume_name/volume_id>
+> docker volume prune
+
+
+
+networking
+
+
+> docker network ls
+> docker network create --help
+> docker network create -d bridge <name_for_bridge_network>
+> docker container run -it --network <name_of_network> <image_name> Command
+> docker network create <network_name> (it will create network with bridge type)
+> docker network connect <network_name> <container_id> (use to connect multiple network to container)
+> docker network disconnect <network_name> <container_id> 
+> docker network rm <network_name>
+> docker network prune
+
+
+
+set up local registry
+
+> docker pull registry
+> docker image tag redis:alpine 127.0.0.1:5000/redis:alpine 
+> docker image push 127.0.0.1:5000/redis:alpine
+> docker image pull 127.0.0.1:5000/redis:alpine
+
+- by default docker server doesn't allow to pull or push image to http server. it required serber to be https.
+- but we can exception and ask docker server to allow for given address through given steps
+step 1 : create daemon.json file
+step 2:content of file will be
+Note: replace id with your ip
+       {
+        "insecure-registries" : ["127.0.0.1:5000"]
+        }
+step 3: put the daemon.json to this location on host machine "/etc/docker"
+step 4: restart docker service
+
+
+creating secure registry
+
+pre-requsites:
+ - delete daemon.json if have addee to access unsecure registry from /etc/docker/
+
+step 1 : create directory for certificates:
+       > mkdir certs
+step 2: creating certificate
+      > openssl req -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key -x509 -days 365 -out certs/domain.crt
+step 3: will installing only give common name > repo.docker.local
+
+step 4: cd certs
+step 5 : create folder in /etc/docker with name certs.d
+step 6:  create folder in certs.d with mkdir repo.docker.local:5000 
+step 7: copy contain of cert folder to /etc/docker/certs.d/repo.docker.local\:5000/ca.crt
+
+step 8: restart docker service
+step 9: run this command
+>docker container run -d -p 5000:5000 --name secure_registry -v $(pwd)/certs/:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry
+
+Example of push
+> docker image tag mariadb repo.docker.local:5000/mariadb
+> docker image push repo.docker.local:5000/mariadb
+
+video link
+https://www.youtube.com/watch?v=Z8pqgSRs3cY&list=PL6XT0grm_Tfje2ySztzdhp0HmCjVj5P4z&index=34
+
+
+
+
+Docker compose
+> docker-compose up -d (start container in background)
+> docker-compose --help
+> docker-compose container (it only created container but it will not start the container, also network is not created)
+> docker-compose rm (remove the container)
+> docker-compose up --no-start
+> docker-compose stop
+> docker-compose start
+> docker-compose create (deprected)
+> (create,start,stop,rm command does not perform network related task)
+> docker-compose images ()
+> docker-compose pause
+> docker-compose unpause
+> docker-compose ls
+> docker-compose ps
+> docker-compose kill
+> docker-compose port <service_name> <port_number>
+> docker-compose logs -f
+> docker-compose exec <service_name> command (it will run inside running container)
+> docker-compose run <service_name> command (it will create new container)
+> docker-compose restart
+> docker-compose pull 
+> docker-compose scale
+> docker-compose scale <serice_name>=no_of_conatiner_want <serice_name>=no
+> docker-compose top
+
+
+
+Docker swarm
+https://www.infralovers.com/en/articles/2018/09/11/docker-swarm-how-to-create-a-minimal-cluster-running-a-service-using-virtualbox/
+
+> docker swarm init
+> docker node ls (gives total numbers of nodes present in our cluster. it only work on master node)
+> docker swarm join --token <token> ip:port_of_master (run this command on workernode) 
+> docker swarm join-token worker (provide token for worker to join, run on master node only)
+> docker swarm join-token manager (provide token for manager to join, run on master)
+> docker swarm leave (worker node leave the cluster, run on worker node)
+> docker node rm <worker_name/worker_id> (run on master, remove node from cluster)
+> docker node promote <worker_name> (run on master, given worker will be promoted as manager)
+> docker node demote <master_name> (reverse of promote)
+
+> docker service create apline ping 8.8.8.8 (one service will be created on any node)
+
+> docker service ps <service_id>
+
+> docker service create -d --replicas 4 alpine ping 8.8.8.8 (4 replicas will be created
+
+> docker service scale <service_id>=<no_of_replicas>
+
+> docker service rm <service_id>
+
+> docker service create -d -p 8090:80 nginx (we can access our service from any node when port mapping is done while creating service.)
+
+> docker service create mode=global apline 8.8.8.8 (one instance per node will be created)
+
+>docker container create --replicas=3 --constraint=="node.role=manager" apline ping 8.8.8.8
+
+
+
+
+
+
+
+https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
+ 
+
+
+
+
+
+
+
+
