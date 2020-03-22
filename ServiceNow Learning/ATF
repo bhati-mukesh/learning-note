@@ -1,0 +1,115 @@
+
+
+Introdcution of ATF
+
+- An Application to support Automation Testing
+- A framework to perform testing in ServiceNow
+- Supports creation of test cases to make sure instance works after any change
+- Helps to support platform upgrade
+
+Accessible to developer and admin
+
+
+Benefits of ATF
+- Replace manual testing with automation
+- Design once and re-use them
+- Rollback of record inserted
+- Tests can be rescheduled
+- test Suites can be created (bucket with test cases)
+
+ATF Components
+- Test (anything which can be tested)
+- Test Suite (bucket have collection of tests that run in order)
+- Quick start test 
+- Test steps
+- Step Configuration (like open form, submit form, etc)
+- Input and output (step variables)
+- Test result (what kind of result will we get)
+- step result
+- Assert (type of condition that test need to pass)
+
+Roles
+- Administrator 
+- ATF Test Admin (specify to ATF Application) (can created and edit ATF FrameWork property) (have full control of ATF Application)
+- ATF test Designer (will able to view, create test step ,etc)
+
+What can we test with ATF?
+- Service Catalog in Service Portal
+- Application Navigator
+- Custom UI
+- Form
+- Service Catalog
+- Forms in Service Portal
+- REST
+- Server 
+
+ATF Application and modules
+- Tests 
+- Suites
+- Test Results
+- Parameterized Test Results
+- Suite Results
+- Schedules
+- Manual Page Inspector (use for custom UI page testing)
+
+
+
+
+DisAdvantage:
+- We can't run 2 test at same time
+- SOAP Testing is not possible
+ 
+
+Example
+- Created First Test with SAAS demo test
+
+
+
+Steps involved in ATF
+- create a Test
+- Add steps to the test
+- run the test
+- view the progress
+- view the result
+- if any error, check the screenshot
+
+
+Step by step test building with different configurations
+# step configuration categories
+- Application Navigation - (Application menu visibility, module visibilty, navigate to module)
+- Form (open a new form, open an existing record, filed values validation. field state validation, add attachment to form,click modal button, click a ui action, submit a form)
+- Server (create a user, impersonate, search for a catalog item, record query, record insert, record update, record validation, run server side script, replay request item, log, add attachment to existing record, checkout shopping cart)
+- Service Catalog (open a catalog item, open a record producer, set variable values, set catalog item quantity, validate variable values, variable state validation, validate price and recurring price, add item to shooping cart, order catalog item, submit record poducer)
+- Service Catalog in service Portal (open a record producer, open a catalog item, open an order guide, add row to multi-row variable set, save current row of multi-row variable set, set variable values , validate variables values, variable state validation,validate price and recurring price, navigate within order guide,set catalog item quantity,review order guide summary, review item in order guide, add item to shopping cart, add order guide to shopping cart, submit an order guide, submit record producer)
+- Service Portal
+- Custom ui
+- REST (send rest request -inbound- rest api explorer, send rest request -inbound, asser status code, assert status code name, assert response time,assert response header, assert response json payload is valid, assert response xml payload is well formed, assert xml payload element, assert json response payload element, assert response payload)
+
+
+
+
+
+ATF Advantage
+- Copy a test
+
+
+
+
+Application Navigation
+REST
+Service Catalog in service Portal
+Form 
+Server catalog
+Service Catalog
+
+
+
+
+
+
+
+
+
+
+
+

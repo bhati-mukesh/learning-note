@@ -1,0 +1,45 @@
+ACL
+
+Access Controls
+
+
+How to create new ACL?
+- In normal condition instance will not allow to create new ACL. to create New ACL we new elevate role(security_admin)
+
+- what data can user access and how.
+
+- it is used to restrict the user to access data.
+
+
+
+ACL debug watcher
+- navigate > system security > debugging > debug security rules
+
+
+
+
+
+
+
+Authentication (Credentials - users / password)
+Authorization (Roles)
+Groups / Roles
+Group Roles
+User roles
+Contextual Security (script limit access)
+Conditional security (script limit access on specified conditions)
+ACL (access control list)
+SSO (single sign on)
+OAuth (google's authentication mechanism)
+SSL (secured socket layer)
+Encryption
+Securing Web Services Intergration
+
+
+watch this for details on ACL after Basico service
+https://www.youtube.com/watch?v=CigxJiSY9bk
+
+
+
+
+

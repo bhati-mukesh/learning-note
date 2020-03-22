@@ -1,0 +1,192 @@
+Service Portal
+
+Service Portal is a portal framework that allows administrators to build a mobile-friendly self service experience fro users. it intercat with parts of the servicenow platform, so users can access specific platform features using service portal. 
+
+Why service portal
+- provide an end-user portal
+- self-help functionality
+- perform 3 primary features
+  - Submit requests (service catalog)
+  - browser knowldege (knowledge management)
+  - check statuses
+- other features include
+  - HR functionality
+  - custom app
+
+Benefits of service portal
+- CMS is old and a complete pain
+- Render data in a modern user interface
+- Leverage 3rd-party libraries
+- Mobile friendly
+
+
+Service Portal users
+- End users (HR, Finance)
+- Managerial user
+- Admin/Developer
+
+Core service portal Technologies
+- AngularJS ( AngularJs 1.5 )
+- Bootstrap
+- SASS
+- Other 3rd-party libraries
+  - AngularJS UI
+  - moment.js
+
+Exploring Home page
+
+
+/sp?id=index
+sp -> name of portal (service portal)
+index = name of page
+
+we can configure search feature for each page. i.e search on catalog page will display only catalog items. not an knowledge base articles
+
+
+Service portal Structure
+- portal
+- pages 
+  - containers
+   - rows
+    - columns
+     - Widget instances
+- widgets
+- theme
+  - Style sheets
+  - javascript files
+  - header & footers
+
+Primary tables
+- portal (sp_portal)
+- pages (sp_pages)
+- Theme (sp_theme)
+- Widget (sp_widget)
+- Widget instance (sp_instance)
+
+
+The portal Page Record
+- Entry Point (url suffix. ex sp)
+- Containes properties
+  - URL suffix
+  - Homepage
+  - Service Catalog
+  - Knowledge base
+  - And many more..
+
+
+The Page Record (page can be associated with as many as portal)
+- Key properties
+  - ID, title, short description (sp/id=index, where index is page)  
+  - Access Controls
+  - Container for structure of page 
+
+
+
+What is service portal? 
+- web portal which gives better user experience
+- front face for end users
+- easily configuration
+- automatic layout adjustment on any device
+
+Why we need service Portal?
+- easily accessible to users
+- easy to customize with administration
+- better UI experience
+- single page driven for all the features and services of platform for end users
+- support modern technologies - HTML,CSS, Bootstrap,Angular JS, Javascript, Sass
+
+Baseline Service Portal
+- Baseline Portals
+  - ITSM portal
+  - CAB Workbench
+  - Knowledge portal
+  - Benchmark
+  - Service Workbench Portal
+
+Role of service Portal
+- sp_admin is the service portal admin role
+- SP Admin can design and manage the portal
+- can access all the modules in service	Portal
+
+
+Who can use Service portal?
+- External Users
+- Employees 
+- Client/Customers
+
+Important Points
+- Service portal is a separate application from CMS
+- SP does not support Jelly Scripting 
+- SP does not support standard ServiceNow forms and lists
+- CMS cannot be migrated to service portal
+- SP does not use iframes
+
+What is Branding Editor?
+- Branding Editor is used to provide look and feel to the portal
+- Used to redesign the portal as per your organization
+- Quick Customization
+- Easily configure titles, Theme, logos
+- No coding strategy
+
+Ways to create theme?
+- Navigate to theme
+- from portal table in service configuration page
+
+what is a portal?
+- portal is a parent record which is used to manage portal settings in one location like URL, CSS, Service Catalog, Knowledge, Homepage
+- Portal is an alternative UI Experience to the standard platform UI
+- It is used to define common pages
+- compatible with diferent devices 
+
+
+What is a Page?
+- unique URL
+- Content on a single page
+- Portal independent
+- Styling is done by themes
+- Display widgets and layout
+
+Page Editor?
+- Shows MAP view of the page
+- Edit the properties of the elements of the page
+
+The Widget
+- Contains the actual content
+  - HTML, CSS, JavaScript
+- Acts as blueprint
+- Each widget is an Angular directive
+- Out-of-box widget cannot be modified (cloning is possible)
+- clone in one click
+- Preserve out-of-box functionality
+
+The Widget instance
+- Automatically created from Service Portal Designer
+- Many useful options that help to define a widget
+- 
+
+
+The Theme
+- Defines a portal's look and feel
+  - SASS variables
+  - CSS
+  - JavaScript
+- header & footer
+
+The Menu
+- Define Menu items for a portal
+- No HTML or scripting required
+
+Branding Editor
+- Modify titles, logos, colors
+- Similar to Wordpress
+- Very easy to useee
+
+
+
+
+
+
+
+
+
+

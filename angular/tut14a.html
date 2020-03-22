@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="myModule">
+  <head>
+    <title>My AngularJS App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="tut14.js"></script>
+  </head>
+  <input type="checkBox" ng-model="hideSalary">Hide Salary
+  <body ng-controller="myController">
+ <table border="1">
+ <tr>
+ <th> Name </th>
+ <th> DOB </th>
+ <th> Gender </th>
+  <th> Salary (Currency) </th>
+ </tr>
+ <tr ng-repeat="employee in employees | orderBy:columnName:reverseSort ">
+ <td> {{ employee.name | uppercase }} </td>
+ <td> {{ employee.dateOfBirth |date:"dd-MMM-yy" }} </td>
+ <td> {{ employee.gender | lowercase}} </td>
+ <td ng-hide="hideSalary"> {{ employee.salary | currency:"$":1}} </td>
+ <td ng-show="hideSalary"> #### </td>
+ 
+
+ </tr>
+ </table>
+
+
+</body>
+</html>

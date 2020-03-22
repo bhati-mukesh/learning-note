@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="myModule">
+  <head>
+    <title>My AngularJS App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="tut3.js"></script>
+  </head>
+  <body ng-controller="myController">
+ <h1> Employee Details </h1>
+ <table>
+ <tr>
+ <th> Name </th>
+ <td><input type="text" ng-model="employee.name"></td>
+ </tr>
+ <tr>
+ <th> ID </th>
+ <td><input type="text" ng-model="employee.id"></td>
+ </tr>
+ </table>
+<br><br>
+ <table>
+ <tr>
+ <th> Name </th>
+ <th>{{ employee.name }} </th>
+ </tr>
+ <tr>
+ <th> ID </th> 
+<th>{{ employee.id }} </th>
+ </tr>
+ </table>
+
+</body>
+</html>

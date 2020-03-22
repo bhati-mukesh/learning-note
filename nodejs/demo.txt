@@ -1,0 +1,72 @@
+export OS_USERNAME=admin
+export OS_PASSWORD=test123
+export OS_PROJECT_NAME=admin
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+
+service nova-api restart
+service neutron-server restart
+service neutron-linuxbridge-agent restart
+service neutron-dhcp-agent restart
+service neutron-metadata-agent restart
+service neutron-l3-agent restart
+
+UTC +5:30
+
+
+openstack subnet create --network provider --allocation-pool start=192.168.56.101,end=192.168.56.250 --dns-nameserver 8.8.4.4 --gateway 192.168.56.1 --subnet-range 192.168.56.0/24 provider
+
+openstack subnet create --network selfservice --dns-nameserver 8.8.4.4 --gateway 192.168.58.1 --subnet-range 192.168.58.0/24 selfservice
+
+
+
+provider 
+. admin-openrc
+openstack network create  --share --external --provider-physical-network provider --provider-network-type flat provider
+openstack subnet create --network provider --allocation-pool start=192.168.56.101,end=192.168.56.250 --dns-nameserver 8.8.4.4 --gateway 192.168.56.1 --subnet-range 192.168.56.0/24 provider
+
+
+openstack network create  --share --external \
+  --provider-physical-network provider \
+  --provider-network-type flat provider
+
+https://docs.openstack.org/install-guide/launch-instance-selfservice.html
+
+bridge
+https://www.youtube.com/watch?v=OBlJ3QuEt9k
+
+About ServiceNow
+ServiceNow provide PaaS solution for creating Application/Tools with following features :
+- automate common business process.
+- ease the business management task.
+- replace unstructured work pattern/busniess process with intelligent workflow.
+
+ServiceNow offers 18 different products.
+
+list of product which i have explore.
+1 ITSM (IT service managent)
+-deliver iT service management on a single, cloud-based platform.
+- it include many modules like Assest Management, Contract Management, Incident Management etc,
+- it reducesses operational cost by 60-80%
+
+2 HR Service Delivery
+- this service provide single platform for all HR services.
+- it improves the experience of employee and HR by automating interaction between them.
+
+3 Security Operations
+-  this service deals with security of all assest by monitoring them.
+- this service automate the process of dealing with Vulnerability in system.
+- also automate the task of handling the spam mails.
+
+
+
+console.log(a)
+var a = 10
+
+var a;
+console.log(a)
+a = 10
+
+

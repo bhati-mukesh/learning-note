@@ -1,0 +1,25 @@
+MID Server
+
+What is MID server?
+- Simply it is just a Java Application that run as a windows service or UNIX daemon on a server in our local network 
+
+What is the used of MID Server?
+- For Communication and the movement of data between SNOW instance and our private network (i.e to communicate with application, data sources and services).
+- Even some SNOW Application(like Discovery,Service Mapping,etc) require MID server 
+
+How it works?
+- it is installed on a system in our private network
+- The MID connects with your SNOW instance via SSL
+- The MID server constantly monitors for acivity
+- The MID server only initiates connections.
+
+How much ServiceNow charge for it?
+- It's free of cost. 
+
+what are Advantage of MID server?
+-It does not accept any inbound communication, and does not open any port. This makes it more Securable
+-No Need of VPN.
+-it offloads work from the instance
+
+For more information visit the below link
+https://docs.servicenow.com/bundle/madrid-servicenow-platform/page/product/mid-server/concept/c_MIDServer.html

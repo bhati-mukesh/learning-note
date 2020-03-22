@@ -1,0 +1,16 @@
+body{
+  background: url('coding.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Courgette', cursive;
+}
+h1{
+  color: #fffa65;
+  font-size: 2.5em;
+}
+.rowHeight{
+height: 200px;
+/* background-color: black; */
+}
+.bg{
+  background-color:   background-color: : #4b4b4b;
+}

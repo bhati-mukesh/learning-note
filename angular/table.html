@@ -1,0 +1,14 @@
+ <table border="1">
+ <tr>
+ <th> Name </th>
+ <th> DOB </th>
+ <th> Gender </th>
+  <th> Salary (Currency) </th>
+ </tr>
+ <tr ng-repeat="employee in employees ">
+ <td> {{ employee.name | uppercase }} </td>
+ <td> {{ employee.dateOfBirth |date:"dd-MMM-yy" }} </td>
+ <td> {{ employee.gender | lowercase}} </td>
+ <td> {{ employee.salary | currency:"$":1}} </td>
+ </tr>
+ </table>

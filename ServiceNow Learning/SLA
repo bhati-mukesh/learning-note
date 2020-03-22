@@ -1,0 +1,122 @@
+topics cover
+
+- overview of SLA
+- Types of SLA
+- Configuration of SLA
+- create different SLA
+
+
+What is SLA
+- service level agreement
+- contract between service provider and internal or external customer/client/stakeholders
+- duration of completion of an activity as per the different scenarios
+(it define the scope, quality and speed of the services being povided.
+
+Service Level Management
+
+- In order to manage SLA in servicenow. ServiceNow provide an Application
+- Application to manage SLA in ServiceNow
+- Enables to monitor and manage the quality of service
+
+Where can we use?
+- we can use in areas like HR, IT, etc.
+
+Roles
+- Administrator
+- SLA Admin (sla_admin)
+- SLA Manager (Define SLA definition)
+
+What is SLA Definition?
+- used to create and progress SLA
+- Enables us to use SLA system for organization's task
+- Example - The priority 1 incidents should be resolved quickly so 4 hours is the SLA duration which can be defined
+- Notifications are also sent for the remainder of elapsed SLA percentage
+
+
+types of SLA?
+- OLA (opertion level agreement)
+- SLA
+- underpinning-contract
+
+SLA target
+- Response SLA
+- Resolution SLA
+
+SLA workflow OOB?
+- Default SLA workflow
+- SLA notification and escalation workflow
+- Default SLA repair workflow
+
+Duration types:
+1)User Specified duration
+ -Ex. 8 hours
+2)Relative duration
+ -Ex.- Next Business day
+
+
+Schedule source
+- No Schedule (24x7 working)
+- SLA Definition (refer to schedule table. we can create custom time slots)
+- Task table field (base on table)
+
+Time Zone
+- Callers Time Zone
+- system time zone
+- SLA Definition time zone
+- CI Location time zone
+- Task location time zone
+- Caller's location time zone
+
+
+Different Stages of SLA
+- In Progress
+- Achieved (can be identified through "has breached" field)
+- Breached (can be identified through "has breached" field and with red filled circle displayed in stage field)
+- Paused
+- Completed
+- Cancelled 
+
+
+
+follow link for theortical Concept understanding
+https://www.youtube.com/playlist?list=PLzTvAeLiW8AeSefZ3xiwz_cpJDLf6cZh4
+
+for handson refer link
+https://www.youtube.com/watch?v=vjPFVcL248s
+
+
+Retroactive start in SLA? (interview question)
+- Retroactive starts means that from when it will take effect.
+
+Ex:-
+- If any SLA gets cancelled or completed in any record and due to some condition same SLA get attach to the same record again. Then through retroactive start we can decide that from when new SLA will start or what would be its start triggerring point
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
