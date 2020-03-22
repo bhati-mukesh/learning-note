@@ -1,0 +1,88 @@
+
+
+
+
+Containers Advantage
+- light weight
+- portal
+- flexible
+- scalable
+- stackable
+
+It works on
+- Namespace technology
+
+IPS
+MOUNT 
+Format- LIB
+
+
+Client Server Architecture
+   
+	docker client (CLI) 
+	     ^ 
+	     |
+	 REST API
+	     ^ 
+	     |
+	Docker Daemon
+
+
+
+
+
+
+> docker ps
+> docker images
+> docker 
+
+
+Lits of parent Modules
+Management Commands:
+  builder     Manage builds
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  engine      Manage the docker engine
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+EX: docker parent_module sub_module
+> docker image ls
+> docker container ls (old version docker ps)
+> docker container ls -a
+> docker container rm <container_id>
+> docker container rm <container_id> <container_id> <container_id> (delete multiple container at a time)
+> docker container run ubuntu cat /etc/os-release
+> docker container start <container_id> (we can use to restart container)
+> docker container stop <container_id>
+> docker container run -d <image_name> command (run container in background. d- deattach)
+>docker container run -it ubuntu /bin/bash (specially for ubuntu. to get inside container)
+>
+
+How to get outside of container shell without shutting/terminating container?
+> press ctrl+pq (you will be out of container and container will still running in background)
+> docker container ls -aq (return id's of containers)
+> docker conatiner rm $(docker container ls -aq) (it will delete all container)
+> docker container inpsect <container_id> (give all info of container)
+> docker container logs <container_id>
+> docker container top <container_id> (gives the list of processes running inside container)
+> docker container stats (gives statistic of all running container)
+> docker container run -p 3600:80 nginx (p- port mappig, 3600(host) and 80(container)	
+> docker container run <image_name> --name testing_web(Ex.)   (--name : attach name to container. so we can easily remember and manage)
+> docker container exec -it <container_id> command (it iw used to execute command inside running container. command is specified at the end)
+> docker container rename <container_id> new_name
+
+
+
+to get ip detail of host
+- netstat -ntlp (will give all info about networking like port forwarding,open ports)

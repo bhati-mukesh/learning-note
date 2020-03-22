@@ -1,0 +1,143 @@
+GIT
+
+Benifites
+-  Easily recover files
+- Who introduced an issue and when?
+- roll back to previously working state
+
+History
+- Distributed version control
+
+Features
+- Snapshot caputre
+- Almost every opeartion is local
+- Git has integrity
+- Git generally only adds data
+
+Git Commands
+> git status
+> git config --global user.name "Mukesh Bhati"
+> git config --global user.email "mukeshbhati24@gmail.com"
+> git config --list
+> git config --global core.editor code # optional
+> git config user.name (return username)
+
+(checkout the project)
+
+Git - Three stage Architecture
+
+         (Local Operations)
+
+Working            Staging          git directory        
+Directory          area              (repository)
+ |                   |                   |
+ |     (checkout the | project)          |
+ |<------------------|-------------------|
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+ | (stage files)     |                   | 
+ |------------------>|                   |
+ |                   |                   |
+ |                   |                   |
+ |                   |     (Commit)      |
+ |                   |------------------>|
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+ |                   |                   |
+
+
+> git init()
+> git status
+> git add --a (all files will br transfer to staging area)
+> git commit -m "Initial commit"
+> git log
+> git add file_name+extension(ex demo.txt)
+> rm -rf .git ( to destroy git repository)
+> git clone link (alternate command for making folder name to br custom "git clone link new_name)"
+> git diff (compare working directory with staging area)
+> git diff --staged (compare last commit with staging area)
+> git commit -a -m "direct msg" (this command direct commit the files without going to statging area. but there is one condition file should be tracked one. if file is untrack it will not be commited)
+> git rm file.txt(demo file name)
+> git mv file.txt new_name.txt  (rename the file)
+> git rm --cached file.txt (untrack the file)
+> git commit --ammend
+> git restore --staged file.txt (to unstage)
+> git checkout -- file.txt (restore with last commit)
+> git checkout -f (restore full directory with last commit)
+------for remote------
+> git remote
+> git remote -v
+> git push origin master (origin is alias for link of our repository) 
+> git config --global alias.st status
+> git config --global alias.last 'log -p -1' (show last commit)
+> git restore filename (to discard changes in working directory)
+
+
+
+
+File Status Lifecycle.
+
+
+Untracked           Unmodified           Modified          Staged
+   |                    |                   |                |
+   |                    |                   |                |
+   |   (add the file)   |                   |                |
+   |------------------->|                   |                |
+   |                    | (edit the file)   |                |
+   |                    |------------------>|                |
+   |                    |                   |                |
+   |                    |                   |(stage the file)|
+   |                    |                   |--------------->|
+   | (remove the file)  |                   |                |
+   |<-------------------|                   |                |
+   |                    |                   |                |
+   |                    |        (commit)   |                |
+   |                    |<------------------|----------------|
+   |                    |                   |                |
+   |                    |                   |                |
+   |                    |                   |                |
+   |                    |                   |                |
+   |                    |                   |                |
+   |                    |                   |                |
+ 
+
+> git log -p (it will show commit with diff also)
+> git log -p -3 (it will only show 3 commit)
+> git log --stat
+> git log --pretty=oneline
+> git log --pretty=short
+> git log --pretty=full
+> git log --since=2.days(last 2 days log)
+> git log --since=2.weeks(last 2 days log)
+> git log --since=2.months(last 2 days log) 
+> git log --since=2.years(last 2 days log)
+
+
+Creating branches
+
+> git checkout -b develop (it will create new branch and switch to it)
+> git checkout master (switch to master branch)
+> git branch
+> git merge newbranch_name (execute this from master branch)
+> git branch -v 
+> git branch --merged  (already merged branch)
+> git branch --no-merged (not already merged branch)
+> git branch -d branch_name (use to delete branch and will generate notification)
+> git push origin new_branch (it will pust the branch in git repo)
+> git push origin new_branch:new_name_of_branch (it will push with new name of branch)
+
+
+
+
+
+
+
+
+
+
